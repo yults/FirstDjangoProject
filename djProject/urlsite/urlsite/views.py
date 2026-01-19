@@ -1,12 +1,22 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
+MENU={"Главная":"/", "О блоге":"/about", "Страница поста":"/post"}
 def main_page(request):
-    return HttpResponse("main page")
+    title = "Главная страница"
+    data = {"menu": MENU, "title": title}
+    return render(request, './index.html', context=data)
 
-def product(request, lang):
-    resp = f'language: {lang}'
-    return HttpResponse(resp)
+def about(request):
+    title = "О блоге"
+    about_text = "Кулинарный блог с очень простыми рецептами"
+    data = {"menu": MENU, "title": title, "about_text" : about_text }
+    #resp = f'language: {lang}'
+    return render(request, './about.html', context=data)
 
-def post(request, id, blog_id=1):
-    resp = f'Post id: {id}, blog_id: {blog_id}'
-    return HttpResponse(resp)
+def post(request):
+    title = "Страница поста"
+    post_text= "Рецепт льда: заморозьте воду"
+    data = {"menu": MENU, "title": title, "post_text" : post_text }
+    #resp = f'Post id: {id}, blog_id: {blog_id}'
+    return render(request, './post.html', context=data)

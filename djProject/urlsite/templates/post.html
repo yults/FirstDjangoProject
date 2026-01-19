@@ -1,0 +1,8 @@
+{%  extends 'base.html' %}
+{%  load static %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    <div>{{ post_text }}</div>
+    <img src="{%  static 'img/ice.jpg' %}" alt="Кубики льда">
+{% endblock %}

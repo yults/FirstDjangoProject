@@ -20,7 +20,6 @@ from .views import *
 
 urlpatterns = [
     path('', main_page),
-    re_path(r'^product/(?P<lang>[a-zA-Z]{2})/$', product),
-    path('post/<int:id>/', post),
-    path('post/<int:id>/<int:blog_id>/', post),
+    path('about/', about),
+    path('post/', post),
 ]
