@@ -3,8 +3,10 @@ from django.http import HttpResponse
 def main_page(request):
     return HttpResponse("main page")
 
-def product(request):
-    return HttpResponse("product")
+def product(request, lang):
+    resp = f'language: {lang}'
+    return HttpResponse(resp)
 
-def category(request):
-    return HttpResponse("category")
+def post(request, id, blog_id=1):
+    resp = f'Post id: {id}, blog_id: {blog_id}'
+    return HttpResponse(resp)
