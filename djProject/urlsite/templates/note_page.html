@@ -1,0 +1,15 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+    <h2><a href="{{ "form/" }}">{{ "Кликни на меня чтобы оставить свой отзыв" }} </a></h2>
+    <h1>{{ title }}</h1>
+    {% for el in notes %}
+        {% if el.status == True %}
+        	  <div class="item">
+                <h3>{{ el.fio }}</h3>
+                <h4>{{ el.email }}</h4>
+                <p>{{ el.text }}</p>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
